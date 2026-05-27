@@ -1,14 +1,4 @@
-const express = require('express');
-const app = express();
+// Simulación de credencial de producción expuesta para Secret Scanning
+const STRIPE_API_KEY = "sk_live_51NxA2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T";
 
-app.get('/buscar', (req, res) => {
-    const idUsuario = req.query.id;
-    
-    // ESTO ES UNA INYECCIÓN SQL DIRECTA. 
-    // CodeQL detectará que 'idUsuario' entra desde la web sin filtrar y va directo a la base de datos.
-    const consulta = "SELECT * FROM usuarios WHERE id = '" + idUsuario + "'";
-    
-    db.query(consulta, (err, result) => {
-        res.send(result);
-    });
-});
+console.log("Validando detección de secretos en GitHub...");
